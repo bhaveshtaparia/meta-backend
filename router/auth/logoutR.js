@@ -19,5 +19,5 @@ const logout=async(req,res)=>{
 }
 
 const router=express.Router();
-router.route('/logout').post(auth,logout);
+router.route('/logout').get(auth,logout);
 module.exports=router;
