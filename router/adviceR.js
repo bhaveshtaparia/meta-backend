@@ -24,7 +24,7 @@ router.route('/create/advice').post(auth,postAdvice);
 const allAdvice=async(req,res)=>{
     try{
     
-            const advice= await Advice.find({title:{ $regex: req.body.title, $options: 'i' }});
+            const advice= await Advice.find({});
             res.status(201).json({
                 advice,
                 success:true,
@@ -39,7 +39,7 @@ res.status(404).json({
 }
 }
 
-router.route('/allAdvice').post(allAdvice);
+router.route('/allAdvice').get(allAdvice);
 
 
 // for upvoting 

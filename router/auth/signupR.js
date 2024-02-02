@@ -3,14 +3,7 @@ const jwt=require('jsonwebtoken')
 const Signup=require('../../model/signupModel');
 const register=async(req,res)=>{
 
-    // console.log(req);
     try{
-       
-     if(req.body.password!==req.body.cpassword){
-        res.status(404).json({
-            message:"password doesn't match"
-        })
-     }else{
         const user=await Signup.create(req.body);
         // console.log(signup._id)
         const payload={
@@ -27,7 +20,7 @@ const register=async(req,res)=>{
             message:"Successfully signup",
             token
         })
-     }
+     
     }catch(err){
         if (err.message) {
             res.status(400).json({ message: err.message });

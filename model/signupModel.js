@@ -15,11 +15,11 @@ const singupSchema=new mongoose.Schema({
         required:true,
         minlength:[7,"password should containe atleast 7 char"]
     },
-    cpassword:{
-        type:String,
-        required:true,
-        minlength:[7,"password should containe atleast 7 char"]
-    },
+    // cpassword:{
+    //     type:String,
+    //     required:true,
+    //     minlength:[7,"password should containe atleast 7 char"]
+    // },
     createdAt:{
         type:Date,
         default:Date.now
@@ -46,7 +46,7 @@ singupSchema.post('save', function(error, doc, next) {
     }
     const hash=await bcrypt.hash(this.password,10);
     this.password=hash;
-    this.cpassword=hash;
+    // this.cpassword=hash;
     next();
 
     }catch(error){
