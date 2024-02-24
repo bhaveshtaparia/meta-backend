@@ -18,7 +18,7 @@ app.get('/',(req,res)=>{
     res.send("working")
 })
 app.use(cors({
-    origin:process.env.WEBLINK,
+    origin: "http://localhost:3000" || "https://drugescape.vercel.app" ||process.env.WEBLINK,
     credentials: true,
     methods:["GET","POST","DELETE","PUT"]
 }));
