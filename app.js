@@ -18,7 +18,7 @@ app.get('/',(req,res)=>{
     res.send("working")
 })
 app.use(cors({
-    origin: "*",
+    origin:"http://localhost:3000" ||  process.env.WEBLINK,
     credentials: true,
     methods:["GET","POST","DELETE","PUT"]
 }));
